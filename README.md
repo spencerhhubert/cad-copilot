@@ -25,6 +25,7 @@ Contact me if you're interested in taking a task on, we'll get in a call and for
       - this will take in the files we sourced above and make them usable to our PyTorch model
       - the dataset above does not need to exist before writing this, just need to assume the format it's going to be in
       - this is a standard API that will allows us to load in batches of `(inputs,expected_outputs)` and train en masse
+      - [tutorial to get started](https://pytorch.org/tutorials/beginner/data_loading_tutorial.html)
 - **Spencer**: environment setup
     - convert llama weights to int8
       - if you have an RTX 3090 or above, it's possible to run the LLaMA 13b parameter model with 8 bit ints. It's actually even possible to run it with neglible loss in quality with only [4 bit weights](https://rentry.org/llama-tard-v2#bonus-4-4bit-llama-basic-setup)! We'll save this for later, the stability seems low.
