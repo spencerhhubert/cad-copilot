@@ -13,12 +13,14 @@ The plan is to train this on two RTX 3090's, totalling 48gb of VRAM and over 70 
 ## todo
 Contact me if you're interested in taking a task on, we'll get in a call and form a concrete plan. These are just rough notes to get an idea of what the task looks like
 - big ones I encourage individuals or pairs take on:
-    - **Not yet assigned**: data scraper for any OpenSCAD code online.
+    - **Not yet assigned**: build dataset, build data scraper for any OpenSCAD code online.
       - We need to acquire as much SCAD code *and* accompanying titles/descriptions from across the internet as we can find
       - For example, [Thingiverse](https://www.thingiverse.com/thing:192937/files) has an API to download their files and there are some SCAD models on there
       - Another example, [Cults3D](https://cults3d.com/en/search?q=scad)
       - The [OpenSCAD website](https://openscad.org/gallery.html) has a small gallery
-    - **Not yet assigned**: pytorch dataset class for this data
+    - **Not yet assigned**: pytorch dataset class for the above dataset
+      - this will take in the files we sourced above and make them usable to our PyTorch model
+      - the dataset above does not need to exist before writing this, just need to assume the format it's going to be in
       - this is a standard API that will allows us to load in batches of `(inputs,expected_outputs)` and train en masse
 - **Spencer**: environment setup
     - convert llama weights to int8
