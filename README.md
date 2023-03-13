@@ -1,4 +1,4 @@
-# alpaca
+# alpaca 🔧🦙
 Fine-tuning LLaMA to generate SCAD to make STLs
 
 then we make CAD Engineering Copilot
@@ -8,10 +8,26 @@ then we make CAD Engineering Copilot
 
 [LLaMA](https://github.com/facebookresearch/llama) is a large language model recently "open-sourced" (kinda) by Meta. It's like GPT-3 but 10x more efficient. Even the smallest model can generate coherent, usable code. If you ask it to write SCAD code, it'll return some simple but usable work. The problem is that it clearly doesn't know that much SCAD. It refuses to use anything but the most basic operations. It needs more data.
 
+The plan is to train this on two RTX 3090's, totalling 48gb of VRAM and over 70 tflops of compute. We could always use more but I think this might just do.
+
 ## todo
 - data scraper for any OpenSCAD code online.
   - [Good place to start](https://openscad.org/gallery.html)
 - pytorch dataset class for this data
-- convert llama weights to 8int
-- get llama fine-tuning working
+- convert llama weights to int8
+  - if you have an RTX 3090 or above, it's possible to run the LLaMA 13b parameter model with 8 bit ints. It's actually even possible to run it with neglible loss in quality with only [4 bit weights](https://rentry.org/llama-tard-v2#bonus-4-4bit-llama-basic-setup)! We'll save this for later, the stability seems low.
+  - it's also [possible](https://github.com/ggerganov/llama.cpp) to run it on an M1 Mac with 32gb of memory
+- get fine-tuning llama with int8's working
 - helper functions to generate and visualize actual STLs
+- web interface?
+  - I'm not going to focus on this for now, but if someone feels inclined, this can be your task
+  - architecture:
+    - front end takes in textual prompts for shapes. "Make me a 3mm helix"
+    - backend phones this prompt home
+    - processes it through the pytorch model that we have yet to fine-tune, which generates some OpenSCAD
+    - generate an STL, there's an [OpenSCAD command line tool](https://files.openscad.org/documentation/manual/Using_OpenSCAD_in_a_command_line_environment.html) for this
+    - send the STL back to the client and display it with some 3D graphics Javascript library
+    - Key: remember what the previous prompts were such that the user can say "make it taller" and we can send home the previous prompts plus this new stipulation such that the user can hone in the shape they want
+
+## where to start
+- See the [Where to Start](https://github.com/spencerhhubert/alpaca/blob/main/assets/where_to_start.md) document
