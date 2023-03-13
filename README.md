@@ -12,15 +12,19 @@ The plan is to train this on two RTX 3090's, totalling 48gb of VRAM and over 70 
 
 ## todo
 - big ones I encourage individuals or pairs take on:
-    - data scraper for any OpenSCAD code online.
+    - Not yet assigned: data scraper for any OpenSCAD code online.
       - [Good place to start](https://openscad.org/gallery.html)
-    - pytorch dataset class for this data
+    - Not yet assigned: pytorch dataset class for this data
       - this is a standard API that will allows us to load in batches of `(inputs,expected_outputs)` and train en masse
-- convert llama weights to int8
-  - if you have an RTX 3090 or above, it's possible to run the LLaMA 13b parameter model with 8 bit ints. It's actually even possible to run it with neglible loss in quality with only [4 bit weights](https://rentry.org/llama-tard-v2#bonus-4-4bit-llama-basic-setup)! We'll save this for later, the stability seems low.
-  - it's also [possible](https://github.com/ggerganov/llama.cpp) to run it on an M1 Mac with 32gb of memory
-- get fine-tuning llama with int8's working
-- helper functions to generate and visualize actual STLs
+- Spencer: environment setup
+    - convert llama weights to int8
+      - if you have an RTX 3090 or above, it's possible to run the LLaMA 13b parameter model with 8 bit ints. It's actually even possible to run it with neglible loss in quality with only [4 bit weights](https://rentry.org/llama-tard-v2#bonus-4-4bit-llama-basic-setup)! We'll save this for later, the stability seems low.
+      - it's also [possible](https://github.com/ggerganov/llama.cpp) to run it on an M1 Mac with 32gb of memory
+    - get fine-tuning llama with int8's working
+- Not yet assigned: helper functions to generate and visualize actual STLs
+  - need a python function, and whatever relevant helper functions, to input a giant string of OpenSCAD code and output an STL/.obj file.
+    - will probably want to call [OpenSCAD command line tool](https://files.openscad.org/documentation/manual/Using_OpenSCAD_in_a_command_line_environment.html) for this
+    - look into the format of an STL. they are basically a big list of vertices and faces, each of which references three vertices
 - web interface?
   - I'm not going to focus on this for now, but if someone feels inclined, this can be your task
   - architecture:
