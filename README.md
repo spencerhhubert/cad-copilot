@@ -1,5 +1,5 @@
 # alpaca 🔧🦙
-Fine-tuning LLaMA to generate SCAD to make STLs
+fine-tuning LLaMA to generate SCAD to make STLs
 
 then we make CAD Engineering Copilot
 
