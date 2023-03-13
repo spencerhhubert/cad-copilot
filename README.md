@@ -11,9 +11,11 @@ then we make CAD Engineering Copilot
 The plan is to train this on two RTX 3090's, totalling 48gb of VRAM and over 70 tflops of compute. We could always use more but I think this might just do.
 
 ## todo
-- data scraper for any OpenSCAD code online.
-  - [Good place to start](https://openscad.org/gallery.html)
-- pytorch dataset class for this data
+- big ones I encourage individuals or pairs take on:
+    - data scraper for any OpenSCAD code online.
+      - [Good place to start](https://openscad.org/gallery.html)
+    - pytorch dataset class for this data
+      - this is a standard API that will allows us to load in batches of `(inputs,expected_outputs)` and train en masse
 - convert llama weights to int8
   - if you have an RTX 3090 or above, it's possible to run the LLaMA 13b parameter model with 8 bit ints. It's actually even possible to run it with neglible loss in quality with only [4 bit weights](https://rentry.org/llama-tard-v2#bonus-4-4bit-llama-basic-setup)! We'll save this for later, the stability seems low.
   - it's also [possible](https://github.com/ggerganov/llama.cpp) to run it on an M1 Mac with 32gb of memory
