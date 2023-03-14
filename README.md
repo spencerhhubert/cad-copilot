@@ -26,6 +26,8 @@ generateCubeVertexOrder(FVector(1., 1., 1.),
 ...(a bunch of other junk)
 ```
 
+It knows a few things, like the OpenSCAD is a programming language for shapes and that cubes have six sides and there are vertices to a shape, but yeah this is not good yet.
+
 However, what's amazing and already a momentous breakthrough about these LLMs, is that they in practice *can* produce cohernet SCAD code, and so 3D shapes. If you ask ChapGPT to write you the code for a car, it can apply its knowledge of the geometry of that thing and apply it to its limited knowledge of SCAD code. I think we can leverage this to make something practically useful.
 
 Example from ChatGPT:
