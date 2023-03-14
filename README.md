@@ -17,7 +17,7 @@ Contact me if you're interested in taking a task on, we'll get in a call and for
 - **Not yet assigned, multi-person job**: build dataset
   - we'll need to acquire a lot of data through scraping as many websites and APIs as we can find. we need to assemble at least 1-10k prompt/OpenSCAD pairs; what is the desired output (OpenSCAD code) corresponding to some input (english prompt)
   - this will require data scraping (basically making mouse click bots), using APIs, and writing scripts all for the purpose of downloading data off websites
-  - [example data](https://github.com/spencerhhubert/alpaca/blob/main/assets/example_data.md)
+  - [example data](https://github.com/spencerhhubert/cad-copilot/blob/main/assets/example_data.md)
   - examples of where to look:
     - [GitHub](https://github.com/search?q=language%3AOpenSCAD&type=Repositories&ref=advsearch&l=OpenSCAD&l=)
     - [Thingiverse](https://www.thingiverse.com/search?q=scad&page=1&type=things&sort=relevant) has an API that one would need to get access to. This is a matter of filling out their form, then they'll give an authentication key
@@ -50,4 +50,4 @@ Contact me if you're interested in taking a task on, we'll get in a call and for
     - Key: remember what the previous prompts were such that the user can say "make it taller" and we can send home the previous prompts plus this new stipulation such that the user can hone in the shape they want
 
 ## where to start
-- See the [Where to Start](https://github.com/spencerhhubert/alpaca/blob/main/assets/where_to_start.md) document
+- See the [Where to Start](https://github.com/spencerhhubert/cad-copilot/blob/main/assets/where_to_start.md) document
