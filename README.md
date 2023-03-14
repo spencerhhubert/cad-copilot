@@ -23,7 +23,7 @@ Contact me if you're interested in taking a task on, we'll get in a call and for
   - examples of where to look:
     - [GitHub](https://github.com/search?q=language%3AOpenSCAD&type=Repositories&ref=advsearch&l=OpenSCAD&l=)
     - [Thingiverse](https://www.thingiverse.com/search?q=scad&page=1&type=things&sort=relevant) 
-      - they have an API that one would need to get access to. this is a matter of filling out their form, then they'll give an authentication key
+      - they have an [API](https://www.thingiverse.com/developers/getting-started) that one would need to get access to. this is a matter of filling out their form, then they'll give an authentication key
       - if you look at an example of thing like [this](https://www.thingiverse.com/thing:40410), we could want to download the `.scad` files from the "Thing Files" and the summary and description. these will all be accessible through the API
         - it's possible we'll need to prune this data, it's not all going to be perfect, but that's okay. I have some ideas how we can mass cleanse once we have lots of data
     - [Cults3D](https://cults3d.com/en/search?q=scad)
