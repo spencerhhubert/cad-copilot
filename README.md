@@ -10,7 +10,7 @@ then we make CAD Engineering Copilot
 
 However, what's amazing and already a momentous breakthrough, is that it even *can* produce cohernet SCAD code, and so 3D shapes. It can apply its knowledge of the geometry of something like a car and apply it to its limited knowledge of SCAD code. I think we can leverage this to make something practically useful.
 
-Checkout [example data](https://github.com/spencerhhubert/cad-copilot/blob/main/assets/example_data.md) for what we're aiming for.
+Checkout some [example data](https://github.com/spencerhhubert/cad-copilot/blob/main/assets/example_data.md) for what we're aiming for.
 
 The plan is to train this on two RTX 3090's, totalling 48gb of VRAM and over 70 tflops of compute. We could always use more but I think this might just do.
 
@@ -48,7 +48,7 @@ Contact me if you're interested in taking a task on, we'll get in a call and for
 - web interface?
   - I'm not going to focus on this for now, but if someone feels inclined, this can be your task
   - architecture:
-    - front end takes in textual prompts for shapes. "Make me a 3mm helix"
+    - front end takes in textual prompts for shapes. "Make me a 3mm long, 1mm wide helix"
     - backend phones this prompt home
     - processes it through the pytorch model that we have yet to fine-tune, which generates some OpenSCAD
     - generate an STL, there's an [OpenSCAD command line tool](https://files.openscad.org/documentation/manual/Using_OpenSCAD_in_a_command_line_environment.html) for this
