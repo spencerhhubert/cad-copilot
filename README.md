@@ -14,18 +14,20 @@ The plan is to train this on two RTX 3090's, totalling 48gb of VRAM and over 70 
 
 ## todo
 Contact me if you're interested in taking a task on, we'll get in a call and form a concrete plan. These are just rough notes to get an idea of what the task looks like
-- big ones I encourage individuals or pairs take on:
-    - **Not yet assigned**: build dataset, build data scraper for any OpenSCAD code online.
-      - we need to acquire as much SCAD code *and* accompanying titles/descriptions from across the internet as we can find. preferably at least 1k pieces of data, hopefully over 10k
-      - this will require some research and resourcefulness, but it's a critical step
-      - for example, [Thingiverse](https://www.thingiverse.com/thing:192937/files) has an API to download their files and there are some SCAD models on there
-      - another example, [Cults3D](https://cults3d.com/en/search?q=scad)
-      - the [OpenSCAD website](https://openscad.org/gallery.html) has a small gallery
-    - **Not yet assigned**: pytorch dataset class for the above dataset
-      - this will take in the files we sourced above and make them usable to our PyTorch model
-      - the dataset above does not need to exist before writing this, just need to assume the format it's going to be in
-      - this is a standard API that will allows us to load in batches of `(inputs,expected_outputs)` and train en masse
-      - [tutorial to get started](https://pytorch.org/tutorials/beginner/data_loading_tutorial.html)
+- **Not yet assigned, multi-person job**: build dataset
+  - we'll need to acquire a lot of data through scraping as many websites and APIs as we can find. we need to assemble at least 1-10k prompt/OpenSCAD pairs; what is the desired output (OpenSCAD code) corresponding to some input (english prompt)
+  - this will require data scraping (basically making mouse click bots), using APIs, and writing scripts all for the purpose of downloading data off websites
+  - [example data](https://github.com/spencerhhubert/alpaca/blob/main/assets/example_data.md)
+  - examples of where to look:
+    - [GitHub](https://github.com/search?q=language%3AOpenSCAD&type=Repositories&ref=advsearch&l=OpenSCAD&l=)
+    - [Thingiverse](https://www.thingiverse.com/search?q=scad&page=1&type=things&sort=relevant) has an API that one would need to get access to. This is a matter of filling out their form, then they'll give an authentication key
+    - [Cults3D](https://cults3d.com/en/search?q=scad)
+    - [The OpenSCAD website](https://openscad.org/gallery.html) has a small gallery
+- **Not yet assigned**: pytorch dataset class for the above datase
+  - this will take in the files we sourced above and make them usable to our PyTorch model
+  - the dataset above does not need to exist before writing this, just need to assume the format it's going to be in
+  - this is a standard API that will allows us to load in batches of `(inputs,expected_outputs)` and train en masse
+  - [tutorial to get started](https://pytorch.org/tutorials/beginner/data_loading_tutorial.html)
 - **Spencer**: environment setup
     - convert llama weights to int8
       - if you have an RTX 3090 or above, it's possible to run the LLaMA 13b parameter model with 8 bit ints. It's actually even possible to run it with neglible loss in quality with only [4 bit weights](https://rentry.org/llama-tard-v2#bonus-4-4bit-llama-basic-setup)! We'll save this for later, the stability seems low.
