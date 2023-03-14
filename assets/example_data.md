@@ -1,4 +1,4 @@
-prompt: "skateboard bearing"
+prompt: "make me a skateboard bearing"
 
 output:
 ```
@@ -36,3 +36,5 @@ for (i = [1 : abs(1) : 10]) {
 
 rendered output (this is not in the dataset, this is just showing what the above creates):
 ![example skateboard bearing openscad render](https://raw.githubusercontent.com/spencerhhubert/cad-copilot/main/assets/example_skateboard_bearing.jpg)
+
+[source](https://github.com/mathcodeprint/openscad-fiddlybits/blob/master/simplebearing.scad)
