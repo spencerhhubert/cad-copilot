@@ -6,9 +6,69 @@ then we make CAD Engineering Copilot
 ## the idea
 [OpenSCAD](https://openscad.org/) is like a programming language for 3D shapes. You can define primititive shapes, move them around, extrude, take the difference or union between them, and apply algorithms to define more complex shapes than would normally be possible in traditional CAD programs. Then, you can output them as STLs and use them as you could any other 3D file in the engineering process. Perhaps 3D print it.
 
-[LLaMA](https://github.com/facebookresearch/llama) is a large language model recently "open-sourced" (kinda) by Meta. It's like GPT-3 but 10x more efficient. Even the smallest model can generate coherent, usable code. If you ask it to write SCAD code, it'll return some simple but usable work. The problem is that it clearly doesn't know that much SCAD. It refuses to use anything but the most basic primitives. It needs more data.
+[LLaMA](https://github.com/facebookresearch/llama) is a large language model recently "open-sourced" (kinda) by Meta. It's like GPT-3 but 10x more efficient. Even the smallest model can generate coherent, usable code if you prompt it *just* right, but it needs some fine-tuning work. If you ask it to write SCAD code, it'll make a valiant but doesn't yet produce usable work. The problem is that it clearly doesn't know that much SCAD. It refuses to use anything but the most basic primitives. It needs more data and it needs fine-tuning for this purpose.
 
-However, what's amazing and already a momentous breakthrough, is that it even *can* produce cohernet SCAD code, and so 3D shapes. It can apply its knowledge of the geometry of something like a car and apply it to its limited knowledge of SCAD code. I think we can leverage this to make something practically useful.
+Example from vanilla LLaMA 13B, with 8bit weights:
+```
+prompt: "The OpenSCAD code for the model of a cube is:"
+continuation:
+Shape shape;
+Appearance appearance;
+materials::Material material(Color("FF0080"), Color("E56B27"));
+//The top face must have more triangles than any other, since it's visible in three
+//spatial directions. All six edges are shared by two faces.
+for (int i=0; i<6; ++i) {
+std::string name = "face_top"; // All names for this cube must be unique to avoid errors
+if ((!name.empty()) && !shape.faceNames().contains(name)) {
+appearance.setDiffuseTexture(texture);
+//This function generates the vertices in counterclockwise order around the centroid point.
+generateCubeVertexOrder(FVector(1., 1., 1.),
+...(a bunch of other junk)
+```
+
+It knows a few things, like the OpenSCAD is a programming language for shapes and that cubes have six sides and there are vertices to a shape, but yeah this is not good yet.
+
+However, what's amazing and already a momentous breakthrough about these LLMs, is that they in practice *can* produce cohernet SCAD code, and so 3D shapes. If you ask ChapGPT to write you the code for a car, it can apply its knowledge of the geometry of that thing and apply it to its limited knowledge of SCAD code. I think we can leverage this to make something practically useful.
+
+Example from ChatGPT:
+```
+prompt: "Write the OpenSCAD code for a car"
+output:
+// Car body
+difference() {
+    union() {
+        // Main body
+        cube([100, 50, 30]);
+
+        // Roof
+        translate([0, 0, 30]) cube([100, 50, 20]);
+
+        // Windows
+        translate([10, 10, 30]) cube([80, 30, 1]);
+        translate([10, 19, 30]) cube([80, 1, 9]);
+        translate([10, 40, 30]) cube([80, 1, 9]);
+    }
+
+    // Cut out wheels
+    union() {
+        translate([20, -10, -5]) cylinder(h=10, r=15, center=true);
+        translate([80, -10, -5]) cylinder(h=10, r=15, center=true);
+    }
+}
+
+// Car doors
+difference() {
+    translate([0, 0, 10]) cube([20, 40, 20]);
+    translate([80, 0, 10]) cube([20, 40, 20]);
+}
+
+// Car lights
+union() {
+    translate([5, 20, 30]) sphere(7);
+    translate([95, 20, 30]) sphere(7);
+}
+```
+I think we can outperform this.
 
 Checkout some [example data](https://github.com/spencerhhubert/cad-copilot/blob/main/assets/example_data.md) for what we're aiming for.
 
