@@ -68,7 +68,7 @@ union() {
     translate([95, 20, 30]) sphere(7);
 }
 ```
-I think we can outperform this.
+I want to first get to this level, then try to outperform it in this niche.
 
 Checkout some [example data](https://github.com/spencerhhubert/cad-copilot/blob/main/assets/example_data.md) for what we're aiming for.
 
