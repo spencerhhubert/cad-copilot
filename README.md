@@ -33,6 +33,7 @@ Contact me if you're interested in taking a task on, we'll get in a call and for
       - if you have an RTX 3090 or above, it's possible to run the LLaMA 13b parameter model with 8 bit ints. It's actually even possible to run it with neglible loss in quality with only [4 bit weights](https://rentry.org/llama-tard-v2#bonus-4-4bit-llama-basic-setup)! We'll save this for later, the stability seems low.
       - it's also [possible](https://github.com/ggerganov/llama.cpp) to run it on an M1 Mac with 32gb of memory
     - get fine-tuning llama with int8's working
+- write and experiment with fine-tuning layer architectures
 - training code
   - this will need to wait until the above work is done
 - **Not yet assigned**: helper functions to generate and visualize actual STLs
